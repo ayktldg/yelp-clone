@@ -1,14 +1,16 @@
 <template>
-  <div class="d-flex">
-    <b-form-input
-      v-model="searched.business"
-      placeholder="Find..."
-    ></b-form-input
-    ><b-form-input
-      v-model="searched.location"
-      placeholder="Location"
-    ></b-form-input>
-    <b-button variant="danger" @click="sendSearched"><b-icon icon="search"></b-icon></b-button>
+  <div>
+    <b-input-group>
+      <b-form-input v-model="business.term" placeholder="Find..."></b-form-input
+      ><b-form-input
+        v-model="business.location"
+      ></b-form-input>
+      <b-input-group-append>
+        <b-button variant="danger" @click="searchBusiness"
+          ><b-icon icon="search"></b-icon
+        ></b-button>
+      </b-input-group-append>
+    </b-input-group>
   </div>
 </template>
 
@@ -16,16 +18,16 @@
 export default {
   data() {
     return {
-      searched: {
-        business: "",
-        location: ""
+      business: {
+        term: "",
+        location: "Istanbul"
       }
     };
   },
   methods: {
-      sendSearched(){
-          console.log(this.searched)
-      }
+    searchBusiness() {
+      this.$store.dispatch("GET_BUSINESS", this.business);
+    }
   }
 };
 </script>
