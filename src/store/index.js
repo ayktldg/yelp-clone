@@ -7,26 +7,28 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    searchResult: []
+    searchResult: [],
   },
   mutations: {
-    GET_BUSINESSES(state,payload) {
+    GET_BUSINESSES(state, payload) {
       state.searchResult = payload;
-      console.log(state.searchResult)
+      //state.searchResult.forEach(place => console.log(place.name, place.alias));
+      console.log(state.searchResult);
     },
   },
   actions: {
     GET_BUSINESS({ commit }, payload) {
       httpService
-        .get(
-          `${API.BUSINESS_SEARCH}?term=${payload.term}&location=${payload.location}`,
-          { headers: { Authorization: `Bearer ${API.API_KEY}` } }
-        )
+        .get(`${API.BUSINESS_SEARCH}`, {
+          headers: { Authorization: `Bearer ${API.API_KEY}` },
+          params: { term: `${payload.term}`, location: `${payload.location}` },
+        })
         .then((response) => {
-          if(response){
-            commit('GET_BUSINESSES', response.data.businesses)
+          if (response) {
+            commit("GET_BUSINESSES", response.data.businesses);
           }
-        }).catch((error) => console.log(error));
+        })
+        .catch((error) => console.log(error));
     },
   },
   modules: {},
