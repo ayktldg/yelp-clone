@@ -41,6 +41,6 @@ export default {
   background-position: center center;
   opacity: 0.9;
   width: 100%;
-  height: 70vh;
+  height: 90vh;
 }
 </style>

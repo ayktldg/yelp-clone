@@ -8,19 +8,20 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     searchResult: [],
-    businessInfo: {}
+    businessInfo: {},
+    businessDetail: {},
   },
   mutations: {
     GET_BUSINESSES(state, payload) {
       state.searchResult = payload;
-      //state.searchResult.forEach(place => console.log(place.name, place.alias));
-      console.log(state.searchResult);
-      console.log(payload);
     },
-    SET_BUSINESS_INFO(state,payload) {
+    SET_BUSINESS_INFO(state, payload) {
       state.businessInfo = payload;
-      console.log(state.businessInfo)
-    }
+    },
+    GET_BUSINESS_DETAIL(state, payload) {
+      state.businessDetail = payload;
+      console.log(state.businessDetail)
+    },
   },
   actions: {
     GET_BUSINESS({ commit }, payload) {
@@ -37,10 +38,23 @@ export default new Vuex.Store({
         .then(() => commit("SET_BUSINESS_INFO", payload))
         .catch((error) => console.log(error));
     },
+    GET_BUSINESS_DETAIL({ commit }, payload) {
+      httpService
+        .get(`${API.BUSINESS}${payload}`, {
+          headers: { Authorization: `Bearer ${API.API_KEY}` },
+        })
+        .then((response) => {
+          if (response) {
+            commit("GET_BUSINESS_DETAIL", response.data);
+          }
+        })
+        .catch((error) => console.log(error));
+    }, 
   },
   getters: {
     getSearchResult: (state) => state.searchResult,
-    getBusinessInfo: state => state.businessInfo
+    getBusinessInfo: (state) => state.businessInfo,
+    getBusinessDetail: (state) => state.businessDetail,
   },
   modules: {},
 });
