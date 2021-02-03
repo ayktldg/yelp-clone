@@ -7,20 +7,29 @@
         <Searchbar />
       </div>
     </div>
+    <div class="container">
+      <h2 v-if="businessInfo.term">Top {{ businessInfo.term }} in {{ businessInfo.location }}</h2>
+        <PlaceCard v-for="result in searchResult" :key="result.id" :result="result" />
+      </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Searchbar from "@/components/Searchbar.vue";
-
+import PlaceCard from "@/components/PlaceCard.vue";
+import { mapGetters } from "vuex";
 export default {
   name: "Home",
   components: {
-    Searchbar
+    Searchbar,
+    PlaceCard
   },
   data() {
     return {};
+  },
+  computed:{
+    ...mapGetters({searchResult: "getSearchResult", businessInfo: "getBusinessInfo"})
   }
 };
 </script>
