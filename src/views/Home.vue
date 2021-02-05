@@ -8,9 +8,15 @@
       </div>
     </div>
     <div class="container">
-      <h2 v-if="businessInfo.term">Top {{ businessInfo.term }} in {{ businessInfo.location }}</h2>
-        <PlaceCard v-for="result in searchResult" :key="result.id" :result="result" />
-      </div>
+      <h2 v-if="businessInfo.term">
+        Top {{ businessInfo.term }} in {{ businessInfo.location }}
+      </h2>
+      <PlaceCard
+        v-for="result in searchResult"
+        :key="result.id"
+        :result="result"
+      />
+    </div>
   </div>
 </template>
 
@@ -23,14 +29,17 @@ export default {
   name: "Home",
   components: {
     Searchbar,
-    PlaceCard
+    PlaceCard,
   },
   data() {
     return {};
   },
-  computed:{
-    ...mapGetters({searchResult: "getSearchResult", businessInfo: "getBusinessInfo"})
-  }
+  computed: {
+    ...mapGetters({
+      searchResult: "getSearchResult",
+      businessInfo: "getBusinessInfo",
+    }),
+  },
 };
 </script>
 <style scoped>

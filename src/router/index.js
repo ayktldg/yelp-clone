@@ -15,7 +15,11 @@ const routes = [
     name: "BusinessDetail",
     component: () =>
       import(/* webpackChunkName: "businesses" */ "../views/BusinessDetail.vue")
-  }
+  },
+  {
+    path: "*",
+    redirect: "/",
+  },
 ];
 
 const router = new VueRouter({

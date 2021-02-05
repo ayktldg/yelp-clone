@@ -12,7 +12,7 @@ export default new Vuex.Store({
     businessDetail: {},
   },
   mutations: {
-    GET_BUSINESSES(state, payload) {
+    SET_BUSINESSES(state, payload) {
       state.searchResult = payload;
     },
     SET_BUSINESS_INFO(state, payload) {
@@ -20,11 +20,12 @@ export default new Vuex.Store({
     },
     GET_BUSINESS_DETAIL(state, payload) {
       state.businessDetail = payload;
-      console.log(state.businessDetail)
+      console.log(state.businessDetail);
     },
   },
   actions: {
-    GET_BUSINESS({ commit }, payload) {
+    SET_BUSINESS({ commit }, payload) {
+      commit("SET_BUSINESS_INFO", payload);
       httpService
         .get(`${API.BUSINESS_SEARCH}`, {
           headers: { Authorization: `Bearer ${API.API_KEY}` },
@@ -32,10 +33,9 @@ export default new Vuex.Store({
         })
         .then((response) => {
           if (response) {
-            commit("GET_BUSINESSES", response.data.businesses);
+            commit("SET_BUSINESSES", response.data.businesses);
           }
         })
-        .then(() => commit("SET_BUSINESS_INFO", payload))
         .catch((error) => console.log(error));
     },
     GET_BUSINESS_DETAIL({ commit }, payload) {
@@ -49,7 +49,7 @@ export default new Vuex.Store({
           }
         })
         .catch((error) => console.log(error));
-    }, 
+    },
   },
   getters: {
     getSearchResult: (state) => state.searchResult,

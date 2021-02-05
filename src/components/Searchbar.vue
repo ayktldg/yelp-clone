@@ -1,10 +1,12 @@
 <template>
   <div>
     <b-input-group>
-      <b-form-input v-model="business.term" @keyup.enter="searchBusiness" placeholder="Find..."></b-form-input
-      ><b-form-input
-        v-model="business.location"
-      ></b-form-input>
+      <b-form-input
+        v-model="business.term"
+        @keyup.enter="searchBusiness"
+        placeholder="Find..."
+      ></b-form-input
+      ><b-form-input v-model="business.location"></b-form-input>
       <b-input-group-append>
         <b-button variant="danger" @click="searchBusiness"
           ><b-icon icon="search"></b-icon
@@ -20,15 +22,15 @@ export default {
     return {
       business: {
         term: "",
-        location: "Istanbul"
-      }
+        location: "",
+      },
     };
   },
   methods: {
     searchBusiness() {
-      this.$store.dispatch("GET_BUSINESS", this.business);
-    }
-  }
+      this.$store.dispatch("SET_BUSINESS", this.business);
+    },
+  },
 };
 </script>
 
