@@ -20,15 +20,16 @@ export default new Vuex.Store({
     },
     GET_BUSINESS_DETAIL(state, payload) {
       state.businessDetail = payload;
-      console.log(state.businessDetail);
+      //console.log(state.businessDetail);
     },
   },
   actions: {
     SET_BUSINESS({ commit }, payload) {
-      commit("SET_BUSINESS_INFO", payload);
       httpService
         .get(`${API.BUSINESS_SEARCH}`, {
-          headers: { Authorization: `Bearer ${API.API_KEY}` },
+          headers: {
+            Authorization: `Bearer ${API.API_KEY}`,
+          },
           params: { term: `${payload.term}`, location: `${payload.location}` },
         })
         .then((response) => {
@@ -37,6 +38,7 @@ export default new Vuex.Store({
           }
         })
         .catch((error) => console.log(error));
+      commit("SET_BUSINESS_INFO", payload);
     },
     GET_BUSINESS_DETAIL({ commit }, payload) {
       httpService

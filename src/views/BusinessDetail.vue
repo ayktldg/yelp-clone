@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="d-flex align-items-center bg-dark mb-4"
+      class="d-flex align-items-center bg-dark mb-5"
       :style="`background-image: url(${businessDetail.image_url});background-repeat: no-repeat; 
      background-size: cover; 
      background-position: center center; height: 400px; opacity: .9;`"
@@ -14,27 +14,30 @@
             <p>Price: {{ businessDetail.price }}</p>
             <p>{{ businessDetail.is_closed ? "Closed" : "Open" }}</p>
             <div>
-              <p>
-                Category: {{ businessDetail.categories[0].title }},{{
-                  businessDetail.categories[0].alias
-                }}
-              </p>
+              <p>Category: {{ businessDetail.categories[0].alias }}</p>
             </div>
           </b-col>
         </b-row>
       </b-container>
     </div>
-    <b-container class="col-md-3 offset-2">
-      <BusinessInfoCard />
+    <b-container class="d-flex flex-wrap mb-5">
+      <div class="col-md-8">
+        <DetailHours />
+      </div>
+      <div class="col-md-4">
+        <BusinessInfoCard />
+      </div>
     </b-container>
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import BusinessInfoCard from "@/components/BusinessInfoCard";
+import DetailHours from "@/components/DetailHours";
 export default {
   components: {
     BusinessInfoCard,
+    DetailHours,
   },
   created() {
     this.$store.dispatch("GET_BUSINESS_DETAIL", this.$route.params.id);
