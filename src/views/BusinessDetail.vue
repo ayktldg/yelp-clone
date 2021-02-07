@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div>
+      <TheNavbar />
+    </div> 
     <div
       class="d-flex align-items-center bg-dark mb-5"
       :style="`background-image: url(${businessDetail.image_url});background-repeat: no-repeat; 
@@ -34,13 +37,16 @@
 import { mapGetters } from "vuex";
 import BusinessInfoCard from "@/components/BusinessInfoCard";
 import DetailHours from "@/components/DetailHours";
+import TheNavbar from "@/components/TheNavbar";
 export default {
   components: {
     BusinessInfoCard,
     DetailHours,
+    TheNavbar,
   },
   created() {
     this.$store.dispatch("GET_BUSINESS_DETAIL", this.$route.params.id);
+  
   },
   computed: {
     ...mapGetters({ businessDetail: "getBusinessDetail" }),
