@@ -10,8 +10,8 @@
         v-for="(hour, index) in this.businessDetail.hours[0].open"
         :key="index"
         class="border-0 py-1"
-        >{{ hour.start | formatHour }} AM -
-        {{ hour.end | formatHour }} PM</b-list-group-item
+        >{{ hour.start | formatHour | formatDayTime }} -
+        {{ hour.end | formatHour | formatDayTime }} </b-list-group-item
       >
     </b-list-group>
   </div>
@@ -29,10 +29,21 @@ export default {
     ...mapGetters({ businessDetail: "getBusinessDetail" }),
   },
   filters: {
-    formatHour: function (value) {
+    formatHour(value) {
       value = value.split("");
       value.splice(2, 0, ":");
       return value.join("");
+    },
+    formatDayTime(value) {
+      let arrValue = value.split("");
+      let dividedValue = arrValue.slice(0,2);
+      let newValue = dividedValue.join("");
+      let hour = Number(newValue);
+      if(hour > 12){
+        return `${value} PM`
+      }else{
+        return `${value} AM`
+      }
     },
   },
 };

@@ -50,7 +50,6 @@ export default {
       businessInfo: "getBusinessInfo",
     }),
     rows() {
-      console.log(this.searchResult.length);
       return this.searchResult.length;
     },
     paginatedResults() {

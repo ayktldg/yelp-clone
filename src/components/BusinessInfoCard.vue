@@ -3,7 +3,7 @@
     <b-list-group-item
       class="d-flex justify-content-between align-items-center"
     >
-  <b-link :to="`${businessDetail.url}`">Website</b-link>
+      <b-link :to="`${businessDetail.url}`">Website</b-link>
       <b-icon icon="link"></b-icon>
     </b-list-group-item>
 
@@ -14,28 +14,41 @@
       <b-icon icon="telephone"></b-icon>
     </b-list-group-item>
 
-     <b-list-group-item v-if="allAdress"
+    <b-list-group-item
+      v-if="allAdress"
       class="d-flex justify-content-between align-items-center"
     >
       {{ allAdress }}
       <b-icon icon="arrow90deg-right"></b-icon>
-    </b-list-group-item> 
+    </b-list-group-item>
   </b-list-group>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 export default {
-  data(){
+  data() {
     return {
-      adress: ""
-    }
+      adress: "",
+    };
   },
   computed: {
     ...mapGetters({ businessDetail: "getBusinessDetail" }),
     allAdress() {
-      return `${this.businessDetail.location.address1} ${this.businessDetail.location.address2} ${this.businessDetail.location.address3}`
-    }
+      return `${
+        this.businessDetail.location.address1
+          ? this.businessDetail.location.address1
+          : "Address not specified"
+      } ${
+        this.businessDetail.location.address2
+          ? this.businessDetail.location.address2
+          : ""
+      } ${
+        this.businessDetail.location.address3
+          ? this.businessDetail.location.address3
+          : ""
+      }`;
+    },
   },
 };
 </script>
