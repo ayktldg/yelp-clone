@@ -29,7 +29,7 @@ export default {
   methods: {
     searchBusiness() {
       this.$store.dispatch("SET_BUSINESS", this.business);
-      this.$router.push({name: "SearchResults"})
+      this.$router.push({name: "SearchResults", params: { search: `${this.business.term}`}})
     },
   },
 };

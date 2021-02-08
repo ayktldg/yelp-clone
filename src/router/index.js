@@ -14,13 +14,13 @@ const routes = [
     path: "/businesses/:id",
     name: "BusinessDetail",
     component: () =>
-      import(/* webpackChunkName: "businesses" */ "../views/BusinessDetail.vue")
+      import(/* webpackChunkName: "busines-detail" */ "../views/BusinessDetail.vue")
   },
   {
-    path: "/search-results/",
+    path: "/businesses/:search",
     name: "SearchResults",
     component: () =>
-      import(/* webpackChunkName: "search-results" */ "../views/SearchResults.vue")
+      import(/* webpackChunkName: "businesses" */ "../views/SearchResults.vue")
   },
   {
     path: "*",
