@@ -1,8 +1,11 @@
 <template>
   <div>
     <b-navbar variant="faded" type="light">
-      <b-navbar-brand to="/">Yelp</b-navbar-brand>
+      <b-container class="py-4 justify-content-between">
+        <b-navbar-brand to="/" class="font-weight-bold">Yelp</b-navbar-brand>
       <Searchbar />
+      </b-container>
+      
     </b-navbar>
   </div>
 </template>
@@ -15,3 +18,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+i{
+  color: black;
+  width:30px;
+  height:30px;
+}
+</style>
