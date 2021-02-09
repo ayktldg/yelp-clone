@@ -33,7 +33,7 @@ export default {
       this.$store.dispatch("SET_BUSINESS", this.business);
       this.$router.push({
         name: "SearchResults",
-        params: { search: `${this.business.term}` },
+        params: { location: `${this.business.location}`, search: `${this.business.term}`  },
       });
     },
   },

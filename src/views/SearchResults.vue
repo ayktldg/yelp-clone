@@ -6,7 +6,7 @@
         Top {{ businessInfo.term }} in {{ businessInfo.location }}
       </h2>
 
-      <PlaceCard
+      <BusinessCard
         v-for="result in paginatedResults"
         :key="result.id"
         :result="result"
@@ -31,13 +31,13 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import PlaceCard from "@/components/PlaceCard.vue";
+import BusinessCard from "@/components/BusinessCard.vue";
 import TheNavbar from "@/components/TheNavbar.vue";
 import TheFooter from "@/components/TheFooter.vue";
 export default {
   components: {
     TheNavbar,
-    PlaceCard,
+    BusinessCard,
     TheFooter,
   },
   data() {

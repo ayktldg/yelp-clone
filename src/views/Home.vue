@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <div class="header d-flex align-items-center justify-content-center">
-      <div class="container text-white text-center">
-        <h1>Yelp</h1>
+      <b-container class="text-white text-center">
+        <h1 class="display-4 font-weight-bold">Yelp</h1>
         <p><strong>Search every location you want to look</strong></p>
         <Searchbar />
-      </div>
+      </b-container>
     </div>
     <TheFooter />
   </div>
@@ -29,7 +29,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  opacity: 0.9;
+  opacity: 0.8;
   width: 100%;
   height: 87vh;
 }

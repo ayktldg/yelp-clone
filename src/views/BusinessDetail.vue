@@ -29,7 +29,7 @@
           <DetailHours />
         </div>
         <div class="col-md-6 p-0">
-          <BusinessInfoCard />
+          <DetailBusinessCard />
         </div>
       </div>
       <div class="row my-5">
@@ -41,14 +41,14 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import BusinessInfoCard from "@/components/BusinessInfoCard";
+import DetailBusinessCard from "@/components/DetailBusinessCard";
 import DetailHours from "@/components/DetailHours";
 import TheNavbar from "@/components/TheNavbar";
 import DetailImages from "@/components/DetailImages";
 import TheFooter from "@/components/TheFooter.vue";
 export default {
   components: {
-    BusinessInfoCard,
+    DetailBusinessCard,
     DetailHours,
     TheNavbar,
     DetailImages,
