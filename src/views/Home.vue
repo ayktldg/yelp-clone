@@ -7,16 +7,19 @@
         <Searchbar />
       </div>
     </div>
+    <TheFooter />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Searchbar from "@/components/Searchbar.vue";
+import TheFooter from "@/components/TheFooter.vue";
 export default {
   name: "Home",
   components: {
     Searchbar,
+    TheFooter
   },
 };
 </script>
@@ -28,6 +31,6 @@ export default {
   background-position: center center;
   opacity: 0.9;
   width: 100%;
-  height: 90vh;
+  height: 87vh;
 }
 </style>

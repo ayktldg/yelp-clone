@@ -26,16 +26,19 @@
         ></b-table>
       </div>
     </div>
+    <TheFooter />
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import PlaceCard from "@/components/PlaceCard.vue";
 import TheNavbar from "@/components/TheNavbar.vue";
+import TheFooter from "@/components/TheFooter.vue";
 export default {
   components: {
     TheNavbar,
     PlaceCard,
+    TheFooter,
   },
   data() {
     return {

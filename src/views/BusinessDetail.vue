@@ -2,7 +2,7 @@
   <div>
     <div>
       <TheNavbar />
-    </div> 
+    </div>
     <div
       class="d-flex align-items-center bg-dark mb-5"
       :style="`background-image: url(${businessDetail.image_url});background-repeat: no-repeat; 
@@ -23,14 +23,20 @@
         </b-row>
       </b-container>
     </div>
-    <b-container class="d-flex flex-wrap mb-5">
-      <div class="col-md-8">
-        <DetailHours />
+    <b-container>
+      <div class="row d-flex flex-wrap my-5">
+        <div class="col-md-6 p-0">
+          <DetailHours />
+        </div>
+        <div class="col-md-6 p-0">
+          <BusinessInfoCard />
+        </div>
       </div>
-      <div class="col-md-4">
-        <BusinessInfoCard />
+      <div class="row my-5">
+        <DetailImages />
       </div>
     </b-container>
+    <TheFooter />
   </div>
 </template>
 <script>
@@ -38,15 +44,18 @@ import { mapGetters } from "vuex";
 import BusinessInfoCard from "@/components/BusinessInfoCard";
 import DetailHours from "@/components/DetailHours";
 import TheNavbar from "@/components/TheNavbar";
+import DetailImages from "@/components/DetailImages";
+import TheFooter from "@/components/TheFooter.vue";
 export default {
   components: {
     BusinessInfoCard,
     DetailHours,
     TheNavbar,
+    DetailImages,
+    TheFooter,
   },
   created() {
     this.$store.dispatch("GET_BUSINESS_DETAIL", this.$route.params.id);
-  
   },
   computed: {
     ...mapGetters({ businessDetail: "getBusinessDetail" }),

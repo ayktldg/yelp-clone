@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex font-weight-bold">
     <b-list-group>
-      <b-list-group-item v-for="day in days" :key="day" class="border-0 py-1">{{
+      <b-list-group-item v-for="day in days" :key="day" class="border-0 py-1 pl-0">{{
         day
       }}</b-list-group-item>
     </b-list-group>

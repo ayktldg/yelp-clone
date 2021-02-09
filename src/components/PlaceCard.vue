@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="places my-4">
-        <b-link :to="{name: 'BusinessDetail', params: {id: result.id}}">
+      <b-link :to="{ name: 'BusinessDetail', params: { id: result.id } }">
         <b-card
           :img-src="`${result.image_url}`"
           img-alt="Card image"
@@ -12,25 +12,24 @@
           class="mb-3 col-md-8"
         >
           <small>
-            {{ result.price }} 
-            </small
+            {{ result.price }} </small
           ><small>
-          {{ result.is_closed ? "Open" : "Closed" }}
+            {{ result.is_closed ? "Open" : "Closed" }}
           </small>
           <small>
-          {{ result.phone }}
+            {{ result.phone }}
           </small>
           <small>
-          {{ result.rating }}
+            {{ result.rating }}
           </small>
           <b-card-text>
-              {{ result.location.address1 }}
+            {{ result.location.address1 }}
           </b-card-text>
           <b-card-text>
-              {{ result.location.address2 }}
+            {{ result.location.address2 }}
           </b-card-text>
         </b-card>
-    </b-link>
+      </b-link>
     </div>
   </div>
 </template>
@@ -42,9 +41,6 @@ export default {
       type: Object,
       required: true,
     },
-  },
-  data() {
-    return {};
   },
 };
 </script>

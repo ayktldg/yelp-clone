@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar variant="faded" type="light">
-      <b-navbar-brand href="#">Yelp</b-navbar-brand>
+      <b-navbar-brand to="/">Yelp</b-navbar-brand>
       <Searchbar />
     </b-navbar>
   </div>
