@@ -24,13 +24,18 @@
                   >{{ result.price }}</small
                 >
               </b-card-text>
-              <b-card-text class="mt-4 mb-2 text-secondary">
+              <b-card-text class="text-secondary mt-3 mb-1">
+                <small>{{result.categories[0].title}}, {{result.categories[0].alias}}</small>
+              </b-card-text>
+              <b-card-text class="text-secondary mb-1"><small>
                 {{ result.phone }}
+              </small>
+                
               </b-card-text>
               <b-card-text class="text-secondary">
-                {{ result.location.address1 }}
+                <small>{{ result.location.address1 }}
                 {{ result.location.address2 }}
-                {{ result.location.address3 }}
+                {{ result.location.address3 }}</small>
               </b-card-text>
             </b-card-body>
           </b-col>
@@ -52,6 +57,9 @@ export default {
       required: true,
     },
   },
+  created(){
+    console.log(this.result)
+  }
 };
 </script>
 
@@ -61,7 +69,7 @@ export default {
   text-decoration: none;
 }
 .card {
-  max-width: 32em;
+  max-width: 32.5em;
   border-radius: 0.6em;
   box-shadow: 0px 8px 12px 1px rgba(0, 0, 0, 0.1);
 }

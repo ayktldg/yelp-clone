@@ -32,7 +32,6 @@
         ></b-table>
       </div>
     </b-container>
-
     <TheFooter />
   </div>
 </template>
