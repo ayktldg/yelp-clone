@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-navbar variant="faded" type="light">
-      <b-container class="py-4 justify-content-between">
+    <b-navbar variant="faded" type="light" class="border-bottom">
+      <b-container class="py-4 px-2 justify-content-between">
         <b-navbar-brand to="/" class="font-weight-bold">Yelp</b-navbar-brand>
       <Searchbar />
       </b-container>

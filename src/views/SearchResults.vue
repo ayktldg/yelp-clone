@@ -1,22 +1,28 @@
 <template>
   <div>
     <TheNavbar />
-    <div class="container">
-      <h2 v-if="businessInfo.term">
+    <b-container class="text-center mt-5">
+      <h2 v-if="businessInfo.term && businessInfo.location">
         Top {{ businessInfo.term }} in {{ businessInfo.location }}
       </h2>
-
+    </b-container>
+    <b-container class="mt-4 mb-5 d-flex flex-wrap px-3">
       <BusinessCard
-        v-for="result in paginatedResults"
+        v-for="(result, index) in paginatedResults"
         :key="result.id"
         :result="result"
+        :index="index"
       />
+    </b-container>
+    <b-container class="">
       <div class="overflow-auto">
         <b-pagination
           v-model="currentPage"
           :total-rows="rows"
           :per-page="perPage"
           aria-controls="results"
+          align="center"
+          pills
         ></b-pagination>
         <b-table
           id="results"
@@ -25,7 +31,8 @@
           small
         ></b-table>
       </div>
-    </div>
+    </b-container>
+
     <TheFooter />
   </div>
 </template>
@@ -42,7 +49,7 @@ export default {
   },
   data() {
     return {
-      perPage: 3,
+      perPage: 4,
       currentPage: 1,
     };
   },
@@ -64,4 +71,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+</style>
 
