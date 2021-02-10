@@ -1,27 +1,29 @@
 <template>
-  <b-list-group>
-    <b-list-group-item
-      class="d-flex justify-content-between align-items-center"
-    >
-      <b-link :to="`${businessDetail.url}`">Website</b-link>
-      <b-icon icon="link"></b-icon>
-    </b-list-group-item>
+  <div class="info-list">
+    <b-list-group>
+      <b-list-group-item
+        class="d-flex justify-content-between align-items-center p-4"
+      >
+        <b-link :to="`${businessDetail.url}`">Website</b-link>
+        <b-icon icon="link"></b-icon>
+      </b-list-group-item>
 
-    <b-list-group-item
-      class="d-flex justify-content-between align-items-center"
-    >
-      {{ businessDetail.phone ? businessDetail.phone : "No Phone" }}
-      <b-icon icon="telephone"></b-icon>
-    </b-list-group-item>
+      <b-list-group-item
+        class="d-flex justify-content-between align-items-center p-4"
+      >
+        {{ businessDetail.phone ? businessDetail.phone : "No Phone" }}
+        <b-icon icon="telephone"></b-icon>
+      </b-list-group-item>
 
-    <b-list-group-item
-      v-if="allAdress"
-      class="d-flex justify-content-between align-items-center"
-    >
-      {{ allAdress }}
-      <b-icon icon="arrow90deg-right"></b-icon>
-    </b-list-group-item>
-  </b-list-group>
+      <b-list-group-item
+        v-if="allAdress"
+        class="d-flex justify-content-between align-items-center p-4"
+      >
+        {{ allAdress }}
+        <b-icon icon="arrow90deg-right"></b-icon>
+      </b-list-group-item>
+    </b-list-group>
+  </div>
 </template>
 
 <script>
@@ -52,3 +54,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.info-list{
+  width: 24em;
+}
+</style>
