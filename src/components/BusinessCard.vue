@@ -25,17 +25,22 @@
                 >
               </b-card-text>
               <b-card-text class="text-secondary mt-3 mb-1">
-                <small>{{result.categories[0].title}}, {{result.categories[0].alias}}</small>
+                <small
+                  >{{ result.categories[0].title }},
+                  {{ result.categories[0].alias }}</small
+                >
               </b-card-text>
-              <b-card-text class="text-secondary mb-1"><small>
-                {{ result.phone }}
-              </small>
-                
+              <b-card-text class="text-secondary mb-1"
+                ><small>
+                  {{ result.phone }}
+                </small>
               </b-card-text>
               <b-card-text class="text-secondary">
-                <small>{{ result.location.address1 }}
-                {{ result.location.address2 }}
-                {{ result.location.address3 }}</small>
+                <small
+                  >{{ result.location.address1 }}
+                  {{ result.location.address2 }}
+                  {{ result.location.address3 }}</small
+                >
               </b-card-text>
             </b-card-body>
           </b-col>
@@ -57,9 +62,6 @@ export default {
       required: true,
     },
   },
-  created(){
-    console.log(this.result)
-  }
 };
 </script>
 

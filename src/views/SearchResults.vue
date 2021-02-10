@@ -1,48 +1,55 @@
 <template>
   <div>
     <TheNavbar />
-    <b-container class="text-center mt-5">
-      <h2 v-if="businessInfo.term && businessInfo.location">
-        Top {{ businessInfo.term }} in {{ businessInfo.location }}
-      </h2>
+    <b-container v-if="isLoading">
+      <Loading />
     </b-container>
-    <b-container class="mt-4 mb-5 d-flex flex-wrap px-3">
-      <BusinessCard
-        v-for="(result, index) in paginatedResults"
-        :key="result.id"
-        :result="result"
-        :index="index"
-      />
-    </b-container>
-    <b-container class="">
-      <div class="overflow-auto">
-        <b-pagination
-          v-model="currentPage"
-          :total-rows="rows"
-          :per-page="perPage"
-          aria-controls="results"
-          align="center"
-          pills
-        ></b-pagination>
-        <b-table
-          id="results"
-          :per-page="perPage"
-          :current-page="currentPage"
-          small
-        ></b-table>
-      </div>
-    </b-container>
-    <TheFooter />
+    <div v-else>
+      <b-container class="text-center mt-5">
+        <h2 v-if="businessInfo.term && businessInfo.location">
+          Top {{ businessInfo.term }} in {{ businessInfo.location }}
+        </h2>
+      </b-container>
+      <b-container class="mt-4 mb-5 d-flex flex-wrap px-3">
+        <BusinessCard
+          v-for="(result, index) in paginatedResults"
+          :key="result.id"
+          :result="result"
+          :index="index"
+        />
+      </b-container>
+      <b-container>
+        <div class="overflow-auto">
+          <b-pagination
+            v-model="currentPage"
+            :total-rows="rows"
+            :per-page="perPage"
+            aria-controls="results"
+            align="center"
+            pills
+          ></b-pagination>
+          <b-table
+            id="results"
+            :per-page="perPage"
+            :current-page="currentPage"
+            small
+          ></b-table>
+        </div>
+      </b-container>
+      <TheFooter />
+    </div>
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
+import Loading from "@/components/Loading.vue";
 import BusinessCard from "@/components/BusinessCard.vue";
 import TheNavbar from "@/components/TheNavbar.vue";
 import TheFooter from "@/components/TheFooter.vue";
 export default {
   components: {
     TheNavbar,
+    Loading,
     BusinessCard,
     TheFooter,
   },
@@ -57,6 +64,7 @@ export default {
     ...mapGetters({
       searchResult: "getSearchResult",
       businessInfo: "getBusinessInfo",
+      isLoading: "getIsLoading",
     }),
     rows() {
       return this.searchResult.length;
@@ -70,7 +78,4 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-</style>
 

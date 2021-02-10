@@ -1,8 +1,7 @@
 <template>
-    <div class="images m-4">
-          <b-img :src="image" class="img w-100 shadow rounded" >
-          </b-img>
-    </div>
+  <div class="images m-4">
+    <b-img :src="image" class="img w-100 shadow rounded"> </b-img>
+  </div>
 </template>
 
 <script>
@@ -11,8 +10,8 @@ export default {
   props: {
     image: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     ...mapGetters({ businessDetail: "getBusinessDetail" }),
@@ -21,11 +20,10 @@ export default {
 </script>
 
 <style scoped>
-.images{
+.images {
   width: 20em;
-
 }
-.img{
+.img {
   height: 19em;
 }
 </style>

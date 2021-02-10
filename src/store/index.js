@@ -10,17 +10,19 @@ export default new Vuex.Store({
     searchResult: [],
     businessInfo: {},
     businessDetail: {},
+    isLoading: true,
   },
   mutations: {
     SET_BUSINESSES(state, payload) {
       state.searchResult = payload;
+      state.isLoading = false;
     },
     SET_BUSINESS_INFO(state, payload) {
       state.businessInfo = payload;
     },
     GET_BUSINESS_DETAIL(state, payload) {
       state.businessDetail = payload;
-      //console.log(state.businessDetail);
+      state.isLoading = false;
     },
   },
   actions: {
@@ -57,6 +59,7 @@ export default new Vuex.Store({
     getSearchResult: (state) => state.searchResult,
     getBusinessInfo: (state) => state.businessInfo,
     getBusinessDetail: (state) => state.businessDetail,
+    getIsLoading: (state) => state.isLoading,
   },
   modules: {},
 });

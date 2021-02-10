@@ -1,10 +1,7 @@
 <template>
   <div>
     <b-input-group @keyup.enter="searchBusiness">
-      <b-form-input
-        v-model="business.term"
-        placeholder="Find..."
-      ></b-form-input
+      <b-form-input v-model="business.term" placeholder="Find..."></b-form-input
       ><b-form-input
         v-model="business.location"
         placeholder="Location..."
@@ -33,7 +30,10 @@ export default {
       this.$store.dispatch("SET_BUSINESS", this.business);
       this.$router.push({
         name: "SearchResults",
-        params: { location: `${this.business.location}`, search: `${this.business.term}`  },
+        params: {
+          location: `${this.business.location}`,
+          search: `${this.business.term}`,
+        },
       });
     },
   },

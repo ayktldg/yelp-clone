@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style scoped>
-.info-list{
+.info-list {
   width: 24em;
 }
 </style>
