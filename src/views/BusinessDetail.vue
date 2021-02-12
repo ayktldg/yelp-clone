@@ -34,10 +34,10 @@
         <h2 class="text-center font-weight-bold mt-4">Images</h2>
         <div class="d-flex justify-content-center flex-wrap">
           <DetailBusinessPhoto
-            v-for="image in businessDetail.photos"
-            :key="image"
-            :img-src="image"
-            :image="image"
+            v-for="photo in businessDetail.photos"
+            :key="photo"
+            :img-src="photo"
+            :photo="photo"
           />
         </div>
         <h2 class="text-center font-weight-bold mt-4">Hours&Info</h2>
