@@ -7,6 +7,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  name: "DetailBusinessPhoto",
   props: {
     image: {
       type: String,

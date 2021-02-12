@@ -52,6 +52,7 @@
 
 <script>
 export default {
+  name: "SearchResultsBusinessCard",
   props: {
     result: {
       type: Object,

@@ -3,10 +3,10 @@
     <div>
       <TheNavbar />
     </div>
-    <b-container v-if="isLoading">
-      <Loading />
+    <b-container v-if="isLoading" key="business-details">
+      <TheResultLoading />
     </b-container>
-    <div v-else>
+    <div v-else key="business-details">
       <div
         class="hero d-flex align-items-end bg-dark mb-5"
         :style="`background-image: url(${businessDetail.image_url});`"
@@ -33,7 +33,7 @@
       <b-container>
         <h2 class="text-center font-weight-bold mt-4">Images</h2>
         <div class="d-flex justify-content-center flex-wrap">
-          <DetailImages
+          <DetailBusinessPhoto
             v-for="image in businessDetail.photos"
             :key="image"
             :img-src="image"
@@ -43,7 +43,7 @@
         <h2 class="text-center font-weight-bold mt-4">Hours&Info</h2>
         <div class="hours-info d-flex justify-content-center flex-wrap">
           <div class="hours m-4">
-            <DetailHours />
+            <DetailBusinessHoursList />
           </div>
           <div class="info m-4">
             <DetailBusinessCard />
@@ -57,17 +57,18 @@
 <script>
 import { mapGetters } from "vuex";
 import TheNavbar from "@/components/TheNavbar";
-import Loading from "@/components/Loading.vue";
-import DetailImages from "@/components/DetailImages";
-import DetailHours from "@/components/DetailHours";
+import TheResultLoading from "@/components/TheResultLoading.vue";
+import DetailBusinessPhoto from "@/components/DetailBusinessPhoto";
+import DetailBusinessHoursList from "@/components/DetailBusinessHoursList";
 import DetailBusinessCard from "@/components/DetailBusinessCard";
 import TheFooter from "@/components/TheFooter.vue";
 export default {
+  name: "BusinessDetail",
   components: {
     TheNavbar,
-    Loading,
-    DetailImages,
-    DetailHours,
+    TheResultLoading,
+    DetailBusinessPhoto,
+    DetailBusinessHoursList,
     DetailBusinessCard,
     TheFooter,
   },

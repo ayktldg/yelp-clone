@@ -4,7 +4,7 @@
       <b-container class="text-white text-center">
         <h1 class="display-4 font-weight-bold">Yelp</h1>
         <p><strong>Search every location you want to look</strong></p>
-        <Searchbar />
+        <TheSearchBar />
       </b-container>
     </div>
     <TheFooter />
@@ -13,12 +13,12 @@
 
 <script>
 // @ is an alias to /src
-import Searchbar from "@/components/Searchbar.vue";
+import TheSearchBar from "@/components/TheSearchBar.vue";
 import TheFooter from "@/components/TheFooter.vue";
 export default {
   name: "Home",
   components: {
-    Searchbar,
+    TheSearchBar,
     TheFooter,
   },
 };

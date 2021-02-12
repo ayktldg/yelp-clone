@@ -29,6 +29,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  name: "DetailBusinessCard",
   data() {
     return {
       adress: "",

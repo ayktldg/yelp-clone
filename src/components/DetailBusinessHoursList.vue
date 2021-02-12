@@ -23,6 +23,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  name: "DetailBusinessHoursList",
   data() {
     return {
       days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],

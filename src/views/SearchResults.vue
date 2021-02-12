@@ -1,17 +1,17 @@
 <template>
   <div>
     <TheNavbar />
-    <b-container v-if="isLoading">
-      <Loading />
+    <b-container v-if="isLoading" key="search-results">
+      <TheResultLoading />
     </b-container>
-    <div v-else>
+    <div v-else key="search-results">
       <b-container class="text-center mt-5">
         <h2 v-if="businessInfo.term && businessInfo.location">
           Top {{ businessInfo.term }} in {{ businessInfo.location }}
         </h2>
       </b-container>
       <b-container class="mt-4 mb-5 d-flex flex-wrap px-3">
-        <BusinessCard
+        <SearchResultsBusinessCard
           v-for="(result, index) in paginatedResults"
           :key="result.id"
           :result="result"
@@ -42,15 +42,16 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import Loading from "@/components/Loading.vue";
-import BusinessCard from "@/components/BusinessCard.vue";
+import TheResultLoading from "@/components/TheResultLoading.vue";
+import SearchResultsBusinessCard from "@/components/SearchResultsBusinessCard.vue";
 import TheNavbar from "@/components/TheNavbar.vue";
 import TheFooter from "@/components/TheFooter.vue";
 export default {
+  name: "SearchResults",
   components: {
     TheNavbar,
-    Loading,
-    BusinessCard,
+    TheResultLoading,
+    SearchResultsBusinessCard,
     TheFooter,
   },
   data() {

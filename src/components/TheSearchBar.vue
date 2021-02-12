@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  name: "TheSearchBar",
   data() {
     return {
       business: {
